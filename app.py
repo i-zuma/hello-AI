@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+print("Starting...")
+
 key = os.environ.get('OPENAI_API_KEY')
 print("key: ", key)
 
