@@ -25,7 +25,7 @@ def BasicGeneration(userPrompt):
 
 st.title('Bitcoin Analyzer With ChatGPT')
 st.subheader(
-    'Subscribe to my channel!')
+    'Here to my channel!')
 
 def GetBitCoinPrices():
     
