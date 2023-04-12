@@ -2,8 +2,12 @@ import openai
 import json
 import requests
 import streamlit as st
+import os
 
-openai.api_key = "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"
+
+openai.api_key = "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"
+
+print("hey", os.environ)
 
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
