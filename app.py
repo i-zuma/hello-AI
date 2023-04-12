@@ -5,15 +5,8 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-st.text("Starting...")
-
 key = os.environ.get('OPENAI_API_KEY')
-
-st.text("key: " + key)
-
 openai.api_key = key
-st.text("here: ")
-st.text(os.environ.items)
 
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
@@ -24,9 +17,9 @@ def BasicGeneration(userPrompt):
     return completion.choices[0].message.content
 
 
-st.title('Bitcoin Analyzer With ChatGPT')
+st.title('تحليل البتكوين باستخدام الـ ChatGPT')
 st.subheader(
-    'Here to my channel!')
+    'تحليل مفصل لآخر 7 أيام')
 
 def GetBitCoinPrices():
     
@@ -61,14 +54,14 @@ def GetBitCoinPrices():
 
 
     
-if st.button('Analyze'):
-    with st.spinner('Getting Bitcoin Prices...'):
+if st.button('ابدأ التحليل'):
+    with st.spinner('...جاري تحميل أسعار البتكوين'):
         bitcoinPrices = GetBitCoinPrices()
-        st.success('Done!')
-    with st.spinner('Analyzing Bitcoin Prices...'):
+        st.success('!تم')
+    with st.spinner('...جاري التحليل'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
-                    can you provide me with a technical analysis
+                    can you provide me with a technical analysis in UAE Arabic
                     of Bitcoin based on these prices. here is what I want: 
                     Price Overview, 
                     Moving Averages, 
@@ -80,9 +73,9 @@ if st.button('Analyze'):
                     Here is the price list: {bitcoinPrices}"""
     
         analysis = BasicGeneration(chatGPTPrompt)
-        st.text_area("Analysis", analysis,
+        st.text_area("التحليل", analysis,
                      height=500)
-        st.success('Done!')
+        st.success('!تم')
 
 
 
