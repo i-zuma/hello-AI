@@ -7,14 +7,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print("Starting...")
+st.success("Starting...")
 
 key = os.environ.get('OPENAI_API_KEY')
-print("key: ", key)
 
-openai.api_key = "API_KEY"
+st.success("key: ", key)
 
-print("hey: ", os.environ)
+openai.api_key = key
+
+st.success("hey: ", os.environ)
 
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
