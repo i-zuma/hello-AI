@@ -17,7 +17,7 @@ def BasicGeneration(userPrompt):
     return completion.choices[0].message.content
 
 
-st.title('تحليل البتكوين باستخدام الـ ChatGPT')
+st.title('ChatGPT تحليل البتكوين باستخدام الـ')
 st.subheader(
     'تحليل مفصل لآخر 7 أيام')
 
