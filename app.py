@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 
 key = os.environ.get('OPENAI_API_KEY')
-rapidKey = os.environ.get('X-RapidAPI-Key')
+#rapidKey = os.environ.get('X-RapidAPI-Key')
 
 openai.api_key = key
 
@@ -35,7 +35,7 @@ st.write(
 def GetBitCoinPrices():    
     # Define the API endpoint and query parameters
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
-    st.write(rapidKey)
+    #st.write(rapidKey)
     querystring = {
         "referenceCurrencyUuid": "yhjMzLPhuIDl",
         "timePeriod": "7d"
