@@ -5,6 +5,8 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
+#load_dotenv()
+
 key = os.environ.get('OPENAI_API_KEY')
 rapidKey = os.environ.get('RAPID_API_KEY')
 
@@ -28,7 +30,8 @@ st.markdown("""<style>
 st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي')
 st.subheader(
     'تحليل كريبتو مفصل لآخر 7 أيام')
-st.write('Key: ', rapidKey)
+#st.write('OPENAI Key: ', key)
+
 st.warning(
     'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
 
@@ -42,9 +45,10 @@ def GetBitCoinPrices():
         "timePeriod": "7d"
     }
     
+    #st.info(rapidKey)
     # Define the request headers with API key and host
     headers = {
-        "X-RapidAPI-Key": "a617d6467dmshac84323ce581a72p11caa9jsn1adf8bbcbd47",
+        "X-RapidAPI-Key": rapidKey,
         "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
     }
     
@@ -73,7 +77,7 @@ if st.button('ابدأ التحليل'):
     with st.spinner('جاري تحميل أسعار البتكوين...'):
         bitcoinPrices = GetBitCoinPrices()
         #st.success('!تم')
-    with st.spinner('قد تستغرق العملية بعض الوقت. جاري التحليل...'):
+    with st.spinner('قد تستغرق العملية بعض الوقت.\n جاري التحليل...'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
                     can you provide me with a technical analysis in UAE Arabic
@@ -90,4 +94,5 @@ if st.button('ابدأ التحليل'):
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
+        st.snow()
         st.success('تم!')
