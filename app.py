@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 
 key = os.environ.get('OPENAI_API_KEY')
-#rapidKey = os.environ.get('X-RapidAPI-Key')
+rapidKey = os.environ.get('RAPID_API_KEY')
 
 openai.api_key = key
 
@@ -28,7 +28,8 @@ st.markdown("""<style>
 st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي')
 st.subheader(
     'تحليل كريبتو مفصل لآخر 7 أيام')
-st.write(
+st.write('Key: ', rapidKey)
+st.warning(
     'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
 
 
