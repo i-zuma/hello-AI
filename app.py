@@ -24,13 +24,13 @@ st.markdown("""<style>
     direction: rtl;
 }</style>""" ,unsafe_allow_html=True)
 
-st.title('ChatGPT تحليل البتكوين باستخدام الـ')
+st.title('تحليل البيتكوين باستخدام الـ ChatGPT')
 st.subheader(
     'تحليل مفصل لآخر 7 أيام')
 st.write(
     'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
+
 def GetBitCoinPrices():
-    
     
     # Define the API endpoint and query parameters
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
@@ -59,8 +59,6 @@ def GetBitCoinPrices():
     # Return the comma-separated string of prices
     return pricesList
 
-
-
     
 if st.button('ابدأ التحليل'):
     with st.spinner('...جاري تحميل أسعار البتكوين'):
@@ -84,23 +82,3 @@ if st.button('ابدأ التحليل'):
         st.text_area("التحليل", analysis,
                      height=500)
         st.success('!تم')
-
-
-
-
-
-
-
-
-    
-    
-
-    
-    
-
-
-
-
-
-
-
