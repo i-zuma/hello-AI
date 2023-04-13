@@ -5,8 +5,10 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 key = os.environ.get('OPENAI_API_KEY')
-X-RapidAPI-Key = os.environ.get('X-RapidAPI-Key')
+rapidKey = os.environ.get('X-RapidAPI-Key')
 openai.api_key = key
 
 def BasicGeneration(userPrompt):
@@ -41,7 +43,7 @@ def GetBitCoinPrices():
     
     # Define the request headers with API key and host
     headers = {
-        "X-RapidAPI-Key": X-RapidAPI-Key,
+        "X-RapidAPI-Key": rapidKey,
         "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
     }
     
@@ -70,7 +72,7 @@ if st.button('ابدأ التحليل'):
     with st.spinner('جاري تحميل أسعار البتكوين...'):
         bitcoinPrices = GetBitCoinPrices()
         #st.success('!تم')
-    with st.spinner('جاري التحليل...'):
+    with st.spinner('قد تستغرق العملية بعض الوقت. جاري التحليل...'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
                     can you provide me with a technical analysis in UAE Arabic
@@ -81,7 +83,7 @@ if st.button('ابدأ التحليل'):
                     Moving Average Convergence Divergence (MACD),
                     Advice and Suggestion,
                     Do I buy or sell?
-                    Please be as detailed as much as you can, and explain in a way any beginner can understand. and make sure to use headings
+                    Please be as detailed as much as you can, and explain in a way any beginner can understand. and make sure to use headings as bullet points
                     Here is the price list: {bitcoinPrices}"""
     
         analysis = BasicGeneration(chatGPTPrompt)
