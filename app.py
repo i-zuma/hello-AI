@@ -16,7 +16,7 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-st.set_page_config(page_title="تحليل مباشر للبيتكوين", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="البيتكوين اليوم - تحليل فوري", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 st.markdown("""<style>
 
@@ -30,41 +30,47 @@ st.subheader(
 st.write(
     'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
 
-def GetBitCoinPrices():
-    
+
+def GetBitCoinPrices():    
     # Define the API endpoint and query parameters
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
     querystring = {
         "referenceCurrencyUuid": "yhjMzLPhuIDl",
         "timePeriod": "7d"
     }
+    
     # Define the request headers with API key and host
     headers = {
         "X-RapidAPI-Key": "a617d6467dmshac84323ce581a72p11caa9jsn1adf8bbcbd47",
         "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
     }
+    
     # Send a GET request to the API endpoint with query parameters and headers
     response = requests.request(
         "GET", url, headers=headers, params=querystring)
+    
     # Parse the response data as a JSON object
     JSONResult = json.loads(response.text)
+    
     # Extract the "history" field from the JSON response
     history = JSONResult["data"]["history"]
+    
     # Extract the "price" field from each element in the "history" array and add to a list
     prices = []
     for change in history:
         prices.append(change["price"])
+    
     # Join the list of prices into a comma-separated string
     pricesList = ','.join(prices)
+    
     # Return the comma-separated string of prices
     return pricesList
-
     
 if st.button('ابدأ التحليل'):
-    with st.spinner('...جاري تحميل أسعار البتكوين'):
+    with st.spinner('جاري تحميل أسعار البتكوين...'):
         bitcoinPrices = GetBitCoinPrices()
         #st.success('!تم')
-    with st.spinner('...جاري التحليل'):
+    with st.spinner('جاري التحليل...'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
                     can you provide me with a technical analysis in UAE Arabic
@@ -81,4 +87,4 @@ if st.button('ابدأ التحليل'):
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
-        st.success('!تم')
+        st.success('تم!')
