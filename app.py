@@ -16,11 +16,19 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-st.set_config('browser.uiDirection', 'RTL') 
+st.set_page_config(page_title="تحليل مباشر للبيتكوين", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
+
+st.markdown("""<style>
+
+.block-container{
+    direction: rtl;
+}</style>""" ,unsafe_allow_html=True)
+
 st.title('ChatGPT تحليل البتكوين باستخدام الـ')
 st.subheader(
     'تحليل مفصل لآخر 7 أيام')
-
+st.write(
+    'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
 def GetBitCoinPrices():
     
     
@@ -57,7 +65,7 @@ def GetBitCoinPrices():
 if st.button('ابدأ التحليل'):
     with st.spinner('...جاري تحميل أسعار البتكوين'):
         bitcoinPrices = GetBitCoinPrices()
-        st.success('!تم')
+        #st.success('!تم')
     with st.spinner('...جاري التحليل'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
