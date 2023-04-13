@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 
 key = os.environ.get('OPENAI_API_KEY')
+X-RapidAPI-Key = os.environ.get('X-RapidAPI-Key')
 openai.api_key = key
 
 def BasicGeneration(userPrompt):
@@ -19,12 +20,11 @@ def BasicGeneration(userPrompt):
 st.set_page_config(page_title="البيتكوين اليوم - تحليل باستخدام الذكاء الاصطناعي", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 st.markdown("""<style>
+    .block-container{
+    direction: rtl;}
+    </style>""" ,unsafe_allow_html=True)
 
-.block-container{
-    direction: rtl;
-}</style>""" ,unsafe_allow_html=True)
-
-st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي و الـ ChatGPT')
+st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي')
 st.subheader(
     'تحليل كريبتو مفصل لآخر 7 أيام')
 st.write(
@@ -41,7 +41,7 @@ def GetBitCoinPrices():
     
     # Define the request headers with API key and host
     headers = {
-        "X-RapidAPI-Key": "a617d6467dmshac84323ce581a72p11caa9jsn1adf8bbcbd47",
+        "X-RapidAPI-Key": X-RapidAPI-Key,
         "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
     }
     
