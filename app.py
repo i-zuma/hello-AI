@@ -16,7 +16,7 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-st.set_page_config(page_title="البيتكوين اليوم - تحليل فوري", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="البيتكوين اليوم - تحليل باستخدام الذكاء الاصطناعي", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 st.markdown("""<style>
 
@@ -24,9 +24,9 @@ st.markdown("""<style>
     direction: rtl;
 }</style>""" ,unsafe_allow_html=True)
 
-st.title('تحليل البيتكوين باستخدام الـ ChatGPT')
+st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي و الـ ChatGPT')
 st.subheader(
-    'تحليل مفصل لآخر 7 أيام')
+    'تحليل كريبتو مفصل لآخر 7 أيام')
 st.write(
     'تنبيه: هذا التحليل هو فقط من باب الافادة ولا يعد نصيحة مالية بأي حال. يرجى التدقيق والاطلاع قبل أي عملية شراء أو بيع')
 
