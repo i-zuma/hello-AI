@@ -35,6 +35,8 @@ st.write(
 def GetBitCoinPrices():    
     # Define the API endpoint and query parameters
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
+    rapidKey = os.environ.get('X-RapidAPI-Key')
+    
     querystring = {
         "referenceCurrencyUuid": "yhjMzLPhuIDl",
         "timePeriod": "7d"
