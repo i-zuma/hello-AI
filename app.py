@@ -94,5 +94,5 @@ if st.button('ابدأ التحليل'):
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
-        st.snow()
+        #st.snow()
         st.success('تم!')
