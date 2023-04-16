@@ -83,16 +83,17 @@ if st.button('ابدأ التحليل'):
                     can you provide me with a technical analysis in UAE Arabic
                     of Bitcoin based on these prices. here is what I want: 
                     Price Overview, 
+                    Resistance and Support, 
                     Moving Averages, 
                     Relative Strength Index (RSI),
                     Moving Average Convergence Divergence (MACD),
                     Advice and Suggestion,
-                    Do I buy or sell?
-                    Please be as detailed as much as you can, and explain in a way any beginner can understand. and make sure to use headings as bullet points
+                    Bullish or bearish market?
+                    Please be as detailed as much as you can, and explain in a way any beginner can understand. and make sure to use headings as bullet points and leave double lines between each point
                     Here is the price list: {bitcoinPrices}"""
     
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
         #st.snow()
-        st.success('تم!')
+        #st.success('تم!')
