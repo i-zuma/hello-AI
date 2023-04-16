@@ -80,16 +80,18 @@ if st.button('ابدأ التحليل'):
     with st.spinner('قد تستغرق العملية بعض الوقت.\n جاري التحليل...'):
         chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
                     I will provide you with a list of bitcoin prices for the last 7 days
-                    can you provide me with a technical analysis in UAE Arabic
+                    can you provide me with a technical analysis in correct Arabic for both the copy and the headings
                     of Bitcoin based on these prices. here is what I want: 
                     Price Overview, 
-                    Resistance and Support, 
-                    Moving Averages, 
+                    Moving Averages,
+                    Resistance and support, 
                     Relative Strength Index (RSI),
                     Moving Average Convergence Divergence (MACD),
                     Advice and Suggestion,
-                    Bullish or bearish market?
-                    Please be as detailed as much as you can, and explain in a way any beginner can understand. and make sure to use headings as bullet points and leave double lines between each point
+                    Do I buy or sell?
+                    Bull or bear market?
+                    Please be as detailed as much as you can, and explain in a way any beginner can understand. Show your analysis for USD and no other currencies.
+                    For style, make sure to use headings as bullet points and leave three line breaks before each new bullet point. For numbers, use 'commas' as a separator for thousands everywhere and round numbers to 2 decimal points
                     Here is the price list: {bitcoinPrices}"""
     
         analysis = BasicGeneration(chatGPTPrompt)
