@@ -97,7 +97,6 @@ if st.button('ابدأ التحليل'):
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
-        
-        st.markdown(f'لديك اقتراح أو تعليق؟ <a href="mailto:{email}?subject=أداة تحليل البيتكوين">أرسل هنا </a>', unsafe_allow_html=True)
+st.markdown(f'لديك اقتراح أو تعليق؟ <a href="mailto:{email}?subject=أداة تحليل البيتكوين">أرسل هنا </a>', unsafe_allow_html=True)
         #st.snow()
         #st.success('تم!')
