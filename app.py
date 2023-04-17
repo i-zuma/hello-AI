@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 key = os.environ.get('OPENAI_API_KEY')
 rapidKey = os.environ.get('RAPID_API_KEY')
-
 openai.api_key = key
+email = "hozayen@gmail.com"
 
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
@@ -20,14 +20,14 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-st.set_page_config(page_title="البيتكوين اليوم - تحليل باستخدام الذكاء الاصطناعي", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="البيتكوين اليوم - تحليل باستخدام الذكاء الإصطناعي", page_icon="🥇", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 st.markdown("""<style>
     .block-container{
     direction: rtl;}
     </style>""" ,unsafe_allow_html=True)
 
-st.title('تحليل البيتكوين باستخدام الذكاء الاصطناعي')
+st.title('تحليل البيتكوين باستخدام الذكاء الإصطناعي')
 st.subheader(
     'تحليل كريبتو مفصل لآخر 7 أيام')
 #st.write('OPENAI Key: ', key)
@@ -97,5 +97,7 @@ if st.button('ابدأ التحليل'):
         analysis = BasicGeneration(chatGPTPrompt)
         st.text_area("التحليل", analysis,
                      height=500)
+        
+        st.markdown(f'لديك اقتراح أو تعليق؟ <a href="mailto:{email}?subject=أداة تحليل البيتكوين">أرسل هنا </a>', unsafe_allow_html=True)
         #st.snow()
         #st.success('تم!')
